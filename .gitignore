@@ -1,0 +1,7 @@
+# local tooling / working files
+.claude/
+.claude-flow/
+.swarm/
+.DS_Store
+assets/img/products/manifest.json
+.ruv-swarm/
