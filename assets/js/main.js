@@ -74,3 +74,35 @@ if (stacks.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
   document.querySelectorAll('[data-filter]').forEach((b) => b.addEventListener('click', onScroll));
   update();
 }
+
+// Home showcase: shuffle products on every visit, then glide rows sideways with scroll
+const showcase = document.querySelector('.showcase');
+if (showcase) {
+  const rows = [...showcase.querySelectorAll('.sc-row')];
+  const items = rows.flatMap((r) => [...r.children]);
+  for (let i = items.length - 1; i > 0; i--) {
+    const k = Math.floor(Math.random() * (i + 1));
+    [items[i], items[k]] = [items[k], items[i]];
+  }
+  items.forEach((el, i) => rows[i % rows.length].appendChild(el));
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    const move = () => {
+      ticking = false;
+      const r = showcase.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+      rows.forEach((row) => {
+        const range = Math.max(0, row.scrollWidth - showcase.clientWidth);
+        const x = Number(row.dataset.dir) < 0 ? -p * range : -(1 - p) * range;
+        row.style.transform = `translate3d(${x.toFixed(1)}px, 0, 0)`;
+      });
+    };
+    const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } };
+    window.addEventListener('scroll', req, { passive: true });
+    window.addEventListener('resize', req);
+    window.addEventListener('load', req);
+    move();
+  }
+}
