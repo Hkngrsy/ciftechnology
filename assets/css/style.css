@@ -286,8 +286,9 @@ section { padding: 90px 0; }
 .foot-about h3 { font-size: 15px; text-transform: none; letter-spacing: 0; color: #fff; margin-bottom: 8px; }
 .foot-about p { font-size: 13.5px; line-height: 1.7; margin: 0 0 8px; }
 .foot-about p:last-child { margin-bottom: 0; }
-.kvk-badge { width: 116px; height: 116px; filter: drop-shadow(0 8px 24px rgba(13,217,250,.25)); }
-@media (max-width: 760px) { .trust-row { grid-template-columns: 1fr; } .foot-about { grid-template-columns: 1fr; text-align: left; } .kvk-badge { width: 96px; height: 96px; } }
+.badges { display: flex; gap: 12px; flex-wrap: wrap; }
+.kvk-badge { width: 104px; height: 104px; filter: drop-shadow(0 8px 24px rgba(13,217,250,.25)); }
+@media (max-width: 760px) { .trust-row { grid-template-columns: 1fr; } .foot-about { grid-template-columns: 1fr; text-align: left; } .kvk-badge { width: 84px; height: 84px; } }
 
 /* Home showcase: random products, two rows that glide sideways as you scroll */
 .showcase {

@@ -150,4 +150,6 @@ T = [
 ("Samsung Galaxy (KVK garantili)", "Samsung Galaxy (KVK warranty)", "Samsung Galaxy (гарантия KVK)", "Samsung Galaxy (ضمان KVK)"),
 ("Faturalı 2. El Telefon", "Invoiced Second-Hand Phone", "Б/у телефон с чеком", "هاتف مستعمل بفاتورة"),
 ("Ömerağa Mah. Hürriyet Cd. No:131/7, Akdoğan Pasajı, 41100 İzmit / Kocaeli adresindeyiz. WhatsApp: 0535 865 41 41, Instagram: @ciftechnology.", "We are at Ömerağa Mah. Hürriyet Cd. No:131/7, Akdoğan Pasajı, 41100 İzmit / Kocaeli. WhatsApp: +90 535 865 41 41, Instagram: @ciftechnology.", "Наш адрес: Ömerağa Mah. Hürriyet Cd. No:131/7, Akdoğan Pasajı, 41100 İzmit / Kocaeli. WhatsApp: +90 535 865 41 41, Instagram: @ciftechnology.", "عنواننا: Ömerağa Mah. Hürriyet Cd. No:131/7، Akdoğan Pasajı، 41100 İzmit / Kocaeli. واتساب: +90 535 865 41 41، إنستغرام: @ciftechnology."),
+("Genpa garantili ürün", "Genpa warranty products", "Товары с гарантией Genpa", "منتجات بضمان Genpa"),
+("Index garantili ürün", "Index warranty products", "Товары с гарантией Index", "منتجات بضمان Index"),
 ]
