@@ -58,14 +58,20 @@ def head_links(page):
     out.append(f'  <link rel="alternate" hreflang="x-default" href="{page_url("tr", page)}">')
     return "\n".join(out) + "\n"
 
+GLOBE = ('<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">'
+         '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>')
+CARET = '<svg class="caret" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
+
 def switcher(page, cur):
     up = "" if cur == "tr" else "../"
-    items = []
+    links = []
     for l, (name, short, _) in ALL.items():
         href = up + ("" if l == "tr" else l + "/") + page
         attrs = ' aria-current="true"' if l == cur else ""
-        items.append(f'<a href="{href}" hreflang="{l}" lang="{l}" title="{name}"{attrs}>{short}</a>')
-    return '<li class="lang-switch" aria-label="Dil / Language">' + "".join(items) + "</li>"
+        links.append(f'<a href="{href}" hreflang="{l}" lang="{l}"{attrs}><b>{short}</b><span>{name}</span></a>')
+    return ('<li class="lang-switch">'
+            f'<button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Dil / Language">{GLOBE}<span>{ALL[cur][1]}</span>{CARET}</button>'
+            '<div class="lang-menu">' + "".join(links) + "</div></li>")
 
 def add_common(src, page, cur):
     src = re.sub(r'  <link rel="alternate" hreflang="[^"]+" href="[^"]+">\n', "", src)

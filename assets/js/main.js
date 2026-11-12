@@ -106,3 +106,20 @@ if (showcase) {
     move();
   }
 }
+
+// Language dropdown (click/tap; desktop also opens on hover via CSS)
+document.querySelectorAll('.lang-switch').forEach((sw) => {
+  const btn = sw.querySelector('.lang-btn');
+  if (!btn) return;
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = sw.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', (e) => {
+    if (!sw.contains(e.target)) { sw.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { sw.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
+  });
+});
