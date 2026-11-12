@@ -5,3 +5,4 @@
 .DS_Store
 assets/img/products/manifest.json
 .ruv-swarm/
+__pycache__/
